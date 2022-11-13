@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Bookmarks Manager</h1>
+    <div class="searchfield-container">
+      <input
+        id="bookmark-search-field"
+        type="search"
+        placeholder="Search Bookmarks"
+      />
+    </div>
+    <div class="container">
+      <div class="sub-container">
+        <form id="add-bookmark-form">
+          <h2>Add New Bookmark</h2>
+          <input type="text" name="title" placeholder="Title" required />
+          <input type="text" name="link" placeholder="Bookmark link" required />
+          <input
+            type="text"
+            name="tags"
+            placeholder="Add tags seperated by comma"
+          />
+          <button type="submit" id="sumbit-btn">Submit</button>
+        </form>
+
+        <form class="edit-bookmark-form hidden">
+          <h2>Edit Bookmark</h2>
+
+          <input type="text" id="edited-bookmark-title" name="title" required />
+          <input type="text" id="edited-bookmark-link" name="link" required />
+          <input type="text" id="edited-bookmark-tags" name="tags" />
+
+          <button type="submit" id="sumbit-btn">Submit</button>
+        </form>
+      </div>
+      <div class="bookmarks-container">
+        <h2 class="loader">Loading Bookmarks...</h2>
+      </div>
+    </div>
+
+    <script type="module" src="./components/createBookMarkCardHTML.js"></script>
+    <script type="module" src="./components/getAllBookMarks.js"></script>
+    <script type="module" src="./components/submitBookMark.js"></script>
+
+    <script type="module" src="./components/submitEditedBookMark.js"></script>
+    <script type="module" src="./components/getDataById.js"></script>
+    <script type="module" src="./components/deleteBookMark.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
