@@ -4,7 +4,9 @@ const editedBookMarkTags = document.getElementById("edited-bookmark-tags");
 const editedBookMarkForm =
   document.getElementsByClassName("edit-bookmark-form")[0];
 const getDataById = async (id) => {
-  let response = await fetch(`http://localhost:5000/api/bookmarks/${id}`);
+  let response = await fetch(
+    `https://my-bookmark-application.herokuapp.com/api/bookmarks/${id}`
+  );
   let data = await response.json();
 
   editedBookMarkForm.classList.remove("hidden");

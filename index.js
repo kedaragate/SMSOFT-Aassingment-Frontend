@@ -13,6 +13,7 @@ const bookMarksContainer = document.getElementsByClassName(
 const addBookmarkForm = document.getElementById("add-bookmark-form");
 
 addBookmarkForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   const form = new FormData(addBookmarkForm);
   const data = Object.fromEntries(form);
   const tags = data.tags.split(",");
@@ -44,7 +45,6 @@ afterCreatingHTML.then((data) => {
     btn.addEventListener("click", (e) => {
       const bookMarkId = e.target.parentElement.id;
 
-      location.reload();
       return deleteBookMark(bookMarkId);
     });
   });
@@ -54,10 +54,12 @@ const editedBookMarkForm =
   document.getElementsByClassName("edit-bookmark-form")[0];
 
 editedBookMarkForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   const id = e.target.id;
   const form = new FormData(editedBookMarkForm);
   const data = Object.fromEntries(form);
-  const tags = data.tags.split(" ");
+
+  const tags = data.tags.split(",");
   data.tags = tags;
 
   submitEditedBookMark(data, id);
@@ -66,7 +68,9 @@ editedBookMarkForm.addEventListener("submit", (e) => {
 const bookMarkSearch = document.getElementById("bookmark-search-field");
 
 bookMarkSearch.addEventListener("input", (e) => {
-  const url = `http://localhost:5000/api/bookmarks`;
+  e.preventDefault();
+  const url = `https://my-bookmark-application.herokuapp.com/api/bookmarks`;
+  // const url = `http://localhost:5000/api/bookmarks`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {

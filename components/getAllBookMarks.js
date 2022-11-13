@@ -5,7 +5,8 @@ const bookMarksContainer = document.getElementsByClassName(
 )[0];
 
 const getAllBookMarks = async () => {
-  const url = `http://localhost:5000/api/bookmarks`;
+  const url = `https://my-bookmark-application.herokuapp.com/api/bookmarks`;
+  // const url = `http://localhost:5000/api/bookmarks`;
   let response = await fetch(url);
   let data = await response.json();
 

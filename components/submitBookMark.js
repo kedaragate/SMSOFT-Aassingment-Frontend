@@ -1,5 +1,6 @@
 const submitBookMark = async (data) => {
-  const url = `http://localhost:5000/api/bookmarks`;
+  const url = `https://my-bookmark-application.herokuapp.com/api/bookmarks`;
+  // const url = `http://localhost:5000/api/bookmarks`;
   let response = await fetch(url, {
     method: "POST",
     headers: {
